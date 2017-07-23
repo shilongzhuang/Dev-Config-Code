@@ -1,0 +1,20 @@
+{
+  "name": "computed-columns",
+  "version": "0.7.0",
+  "description": "This visualization plugin is like a table, but with computed columns",
+  "main": "index.js",
+  "kibana": {
+    "version": "5.5.0"
+  },
+  "dependencies": {
+    "expr-eval": "^1.0.0"
+  },
+  "build": {
+    "git": {
+      "count": "41",
+      "sha": "3d41b39",
+      "date": "Sat, 22 Jul 2017 23:15:58 -0400"
+    },
+    "date": "Sat Jul 22 2017 23:16:10 GMT-0400 (-04)"
+  }
+}

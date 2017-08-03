@@ -50,3 +50,26 @@ export JRE_HOME=/opt/jdk/jre
 export PATH=$PATH:/opt/jdk/bin:/opt/jdk/jre/bin
 source /etc/profile
 ```
+
+
+```sh
+find /data/anaconda2 -type d -exec chmod 777 {} \;
+chmod 777 /data/anaconda2/lib/R/library
+```
+
+##### To free pagecache:
+
+```sh
+echo 1 > /proc/sys/vm/drop_caches
+```
+
+##### To free dentries and inodes:
+
+```sh
+echo 2 > /proc/sys/vm/drop_caches
+```
+
+##### To free pagecache, dentries and inodes:
+```sh
+echo 3 > /proc/sys/vm/drop_caches
+```

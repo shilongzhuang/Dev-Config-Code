@@ -1,38 +1,24 @@
-# Jupyter
+### Jupyter Installation
 
-## Install IRkernel
-conda install -c r ipython-notebook r-irkernel
-conda install -c r r-essentials
-conda install -c r r-devtools
-install.packages("RSiteCatalyst",repos='http://cran.us.r-project.org')
-
-## start jupyter
-
+```sh
 conda upgrade ipython
-#pip install ipython --upgrade
 conda upgrade notebook
-
-jupyter notebook --generate-config
-Writing default config to: C:\Users\shilongz\.jupyter\jupyter_notebook_config.py
-
-jupyter notebook password
-pssword:xxxx
-
-```python
-from notebook.auth import passwd
-passwd()
 ```
 
-c.NotebookApp.open_browser = False
-c.NotebookApp.ip = '0.0.0.0'
-change c.NotebookApp.iopub_data_rate_limit = 1000000000
-c.NotebookApp.notebook_dir = '/data/jupyter'
+```sh
+jupyter notebook --generate-config --allow-root
+Writing default config to: /root/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.iopub_data_rate_limit = 1000000000" >> /root/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.notebook_dir = '/data/jupyter'" >> /root/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.password_required = True" >> /root/.jupyter/jupyter_notebook_config.py
+```
 
-
-conda install rpy2
-
-find /data/anaconda2 -type d -exec chmod 777 {} \;
-chmod 777 /data/anaconda2/lib/R/library
+```sh
+python -m notebook.auth password
+nohup jupyter notebook --allow-root > /dev/null 2>&1 &
+```
 
 ```sh
 #!/bin/bash
@@ -43,12 +29,25 @@ sleep 1
 nohup jupyter notebook > /dev/null 2>&1 &
 ```
 
-# Install Anaconda
-curl -O https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh
-bash Anaconda2-4.3.1-Linux-x86_64.sh
+
+## Install IRkernel
+
+```sh
+conda install rpy2
+conda install -c r ipython-notebook r-irkernel
+conda install -c r r-essentials
+conda install -c r r-devtools
+install.packages("RSiteCatalyst",repos='http://cran.us.r-project.org')
+```
+
+### Install Anaconda
+```sh
+rm -rf /data/anaconda2
+wget https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh
+bash Anaconda2-4.4.0-Linux-x86_64.sh
 export PATH=/data/anaconda2/bin:$PATH
 source /etc/profile
-rm -rf /data/anaconda2
+```
 
 # Python Packages install
 

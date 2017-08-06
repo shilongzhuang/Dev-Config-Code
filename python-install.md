@@ -1,3 +1,12 @@
+### Install Anaconda
+```sh
+rm -rf /data/anaconda2
+wget https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh
+bash Anaconda2-4.4.0-Linux-x86_64.sh
+export PATH=/data/anaconda2/bin:$PATH
+source /etc/profile
+```
+
 ### Jupyter Installation
 
 ```sh
@@ -30,6 +39,49 @@ nohup jupyter notebook > /dev/null 2>&1 &
 ```
 
 
+### Install PySpark
+
+```sh
+conda create -n tensorflow python=3.5
+source activate tensorflow
+conda install notebook ipykernel
+ipython kernel install --user --name=python3
+```
+
+```sh
+wget https://downloads.lightbend.com/scala/2.12.3/scala-2.12.3.rpm
+yum install scala-2.12.3.rpm
+scala -version
+```
+
+```sh
+pip install py4j
+```
+
+```sh
+wget https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
+tar -zvxf spark-2.2.0-bin-hadoop2.7.tgz
+mv spark-2.2.0-bin-hadoop2.7 /data/spark
+```
+
+```sh
+/etc/profile.d/
+touch spark.sh
+vi spark.sh
+export SPARK_HOME=/data/spark
+export PATH=$SPARK_HOME:$PATH
+export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS=notebook
+export PYSPARK_PYTHON=python3
+source /etc/prfoile
+```
+
+```sh
+pip install findspark
+```
+
+
 ## Install IRkernel
 
 ```sh
@@ -40,14 +92,6 @@ conda install -c r r-devtools
 install.packages("RSiteCatalyst",repos='http://cran.us.r-project.org')
 ```
 
-### Install Anaconda
-```sh
-rm -rf /data/anaconda2
-wget https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh
-bash Anaconda2-4.4.0-Linux-x86_64.sh
-export PATH=/data/anaconda2/bin:$PATH
-source /etc/profile
-```
 
 # Python Packages install
 
@@ -74,3 +118,5 @@ pip install cufflinks
 
 # Oracle
 conda install cx_Oracle
+
+# Tensorflow

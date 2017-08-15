@@ -93,24 +93,25 @@ install.packages("RSiteCatalyst",repos='http://cran.us.r-project.org')
 ```
 
 
-# Python Packages install
+### Python Packages install
 
-## InfluxDB
+#### InfluxDB
 pip install influxdb
 pip install --upgrade influxdb
 pip uninstall influxdb
 
-# BS4
+#### BS4
 pip install beautifulsoup4
 
-## Omniture python package
+### Omniture python package
 pip install git+http://github.com/dancingcactus/python-omniture.git
 pip install https://github.com/dancingcactus/python-omniture/zipball/master
 
-# Flask-ask
+#### Flask-ask
 pip install flask-ask
 
-# Data Visulization
+#### Data Visulization
+pip install matplotlib
 pip install plotly
 
 https://github.com/santosjorge/cufflinks

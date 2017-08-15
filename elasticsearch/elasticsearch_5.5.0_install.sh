@@ -15,8 +15,15 @@ echo "cluster.name: Sirius" >> /etc/elasticsearch/elasticsearch.yml
 echo "network.host : 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
 echo "path.data: /data/elasticsearch" >> /etc/elasticsearch/elasticsearch.yml
 echo "path.logs: /data/logs/elasticsearch" >> /etc/elasticsearch/elasticsearch.yml
-echo "bootstrap.memory_lock: false" >> /etc/elasticsearch/elasticsearch.yml
+echo "bootstrap.memory_lock: true" >> /etc/elasticsearch/elasticsearch.yml
 echo "bootstrap.system_call_filter: false" >> /etc/elasticsearch/elasticsearch.yml
+echo "indices.fielddata.cache.size: 20%" >> /etc/elasticsearch/elasticsearch.yml
 echo "elasticsearch soft nproc 2048"  >> /etc/security/limits.conf
 echo "elasticsearch hard nproc 2048" >> /etc/security/limits.conf
-echo "elasticsearch  -  nofile  65536" >> /etc/security/limits.conf
+echo "elasticsearch - nofile 65536" >> /etc/security/limits.conf
+echo "elasticsearch - memlock unlimited" >> /etc/security/limits.conf
+cd /etc/systemd/system/
+mkdir elasticsearch.service.d
+touch /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
+echo "[Service]" >> /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
+echo "LimitMEMLOCK=infinity" >> /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf

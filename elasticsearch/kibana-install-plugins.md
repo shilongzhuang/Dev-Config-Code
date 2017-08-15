@@ -50,6 +50,13 @@ wget https://github.com/ommsolutions/kibana_ext_metrics_vis/releases/download/0.
 ```
 
 #### 9.Kibana Funnel Chart: https://github.com/outbrain/ob-kb-funnel
+
+```
+wget https://github.com/outbrain/ob-kb-funnel/archive/v5.5.0.zip
+unzip ob-kb-funnel-5.5.0.zip
+mv ob-kb-funnel-5.5.0 ob-kb-funnel
+```
+
 ```
 wget https://github.com/outbrain/ob-kb-funnel/releases/download/v5.2.2/ob-kb-funnel-5.2.2.zip
 git clone https://github.com/outbrain/ob-kb-funnel.git

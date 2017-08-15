@@ -73,3 +73,5 @@ echo 2 > /proc/sys/vm/drop_caches
 ```sh
 echo 3 > /proc/sys/vm/drop_caches
 ```
+
+netstat -tulpn
